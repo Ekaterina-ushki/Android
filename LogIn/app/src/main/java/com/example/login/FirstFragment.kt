@@ -27,19 +27,11 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_login).setOnClickListener {
+        view.findViewById<Button>(R.id.button_first).setOnClickListener {
             val login = view.findViewById(R.id.editLogin) as EditText
             val password = view.findViewById(R.id.editPassword) as EditText
             if (login.text.toString() == "admin" && password.text.toString() == "admin") {
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-            }else{
-                val builder = AlertDialog.Builder(view.context)
-                builder.setTitle("Ошибка входа")
-                builder.setMessage("Неверный логин и пароль")
-                builder.setPositiveButton("OK") { dialog, id ->
-                    // User cancelled the dialog
-                }
-                builder.show()
             }
         }
     }
